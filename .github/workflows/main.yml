@@ -1,9 +1,36 @@
 name: React (Vite) CI
 
 on:
+  # These events trigger the workflow
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
+  build-and-test:
+    # Runs on a standard Ubuntu runner provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the correct Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x' # Use Node.js version 20
+
+      # Step 3: Install all project dependencies (requires package.json)
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run the project build command
+      - name: Build React App (Vite)
+        run: npm run build
+
+      # Step 5: Run the project test command
+      - name: Run tests
+        run: npm run test
