@@ -1,6 +1,7 @@
 name: React (Vite) CI
 
-on: 
+on:
+  # These events trigger the workflow
   push:
     branches: [ "main" ]
   pull_request:
