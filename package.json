@@ -1,0 +1,10 @@
+/Your-Project-Root
+├── .github/
+│   └── workflows/
+│       └── main.yml
+├── src/
+│   └── components/
+│       ├── Greeting.jsx
+│       └── Greeting.test.jsx
+├── package.json   <-- CRITICAL FILE
+└── ...
